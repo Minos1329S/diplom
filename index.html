@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Вхід за паролем</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+
+<body class="main-bg">
+    <div class="login-container">
+        <h2>Вхід за паролем</h2>
+        <input type="password" id="pass" placeholder="Введіть пароль" autocomplete="off" />
+        <button id="btn">Увійти</button>
+        <div id="msg" class="error"></div>
+    </div>
+    <script src="./js/main.js"></script>
+
+
+    <style>
+        /* 1. Базові скидання, без фону */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body.main-bg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('png/login.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* 3. Стилі форми (спільні для обох сторінок) */
+        .login-container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 320px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input,
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-container button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background .3s;
+        }
+
+        .login-container button:hover {
+            background: #0056b3;
+        }
+
+        .error {
+            color: #c00;
+            margin-top: 10px;
+            min-height: 1.2em;
+        }
+    </style>
+</body>
+
+</html>

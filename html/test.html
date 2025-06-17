@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Профіль водія</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+</head>
+
+<body class="bg-gray-100">
+
+    <header class="bg-blue-600 text-white p-4 text-xl font-bold">
+        Профіль водія
+    </header>
+
+    <main class="max-w-2xl mx-auto p-4 bg-white rounded shadow mt-6">
+
+        <!-- Фото і коротка інформація -->
+        <section class="text-center mb-6">
+            <img src="https://via.placeholder.com/100" alt="Фото водія" class="mx-auto rounded-full mb-4" />
+            <h2 class="text-2xl font-semibold" id="driverName">Іван Петров</h2>
+            <p class="text-gray-600" id="driverPhone">+380637777888</p>
+        </section>
+
+        <!-- Дані -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div>
+                <strong>Марка авто:</strong> <span id="carModel">Toyota Camry</span>
+            </div>
+            <div>
+                <strong>Номер авто:</strong> <span id="carNumber">А173</span>
+            </div>
+            <div>
+                <strong>Стаж водіння:</strong> <span id="experience">5 років</span>
+            </div>
+            <div>
+                <strong>Статус:</strong> <span id="driverStatus">Вільний</span>
+            </div>
+        </section>
+
+        <!-- Кнопки -->
+        <div class="mt-6 flex justify-between">
+            <a href="main.html" class="text-blue-600 hover:underline">&larr; Назад</a>
+            <button id="editBtn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Редагувати
+            </button>
+        </div>
+
+    </main>
+
+    <script>
+        // Можна завантажити дані з localStorage або фейкові дані
+        const profile = {
+            driverName: localStorage.getItem("driverName") || "Іван Петров",
+            driverPhone: localStorage.getItem("driverPhone") || "+380637777888",
+            carModel: localStorage.getItem("carModel") || "Toyota Camry",
+            carNumber: localStorage.getItem("carNumber") || "А173",
+            experience: localStorage.getItem("experience") || "5",
+            driverStatus: localStorage.getItem("driverStatus") || "Вільний"
+        };
+
+        // Виведення даних
+        document.getElementById("driverName").textContent = profile.driverName;
+        document.getElementById("driverPhone").textContent = profile.driverPhone;
+        document.getElementById("carModel").textContent = profile.carModel;
+        document.getElementById("carNumber").textContent = profile.carNumber;
+        document.getElementById("experience").textContent = profile.experience + " років";
+        document.getElementById("driverStatus").textContent = profile.driverStatus;
+
+        // Перехід до редагування (наприклад, two.html)
+        document.getElementById("editBtn").addEventListener("click", () => {
+            window.location.href = "./two.html";
+        });
+    </script>
+
+</body>
+
+</html>

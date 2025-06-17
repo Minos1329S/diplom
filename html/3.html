@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Диспетчер Таксі</title>
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+
+    <!-- Ваш CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+    <header class="bg-blue-600 text-white p-4 text-xl font-bold">
+        Панель диспетчера таксі
+        <a href="two.html" class="text-sm bg-white text-blue-600 px-3 py-1 rounded hover:underline float-right">
+            Статистика
+        </a>
+
+    </header>
+
+    <main class="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+
+        <!-- Замовлення -->
+        <section class="md:col-span-2 bg-white p-4 rounded shadow">
+            <h2 class="text-lg font-semibold mb-2">Замовлення</h2>
+
+            <form id="orderForm" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <input type="text" placeholder="Телефон клієнта" class="border p-2 rounded" />
+                <input type="text" placeholder="Адреса подачі" class="border p-2 rounded" />
+                <input type="text" placeholder="Адреса призначення" class="border p-2 rounded" />
+                <select class="border p-2 rounded">
+                    <option>Тип авто</option>
+                    <option>Звичайне</option>
+                    <option>VIP</option>
+                    <option>Універсал</option>
+                </select>
+                <button type="submit" class="bg-blue-500 text-white rounded px-4 py-2 col-span-2">
+                    Створити замовлення
+                </button>
+            </form>
+
+            <table class="w-full text-sm table-auto border">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="p-2 border">#</th>
+                        <th class="p-2 border">Клієнт</th>
+                        <th class="p-2 border">Звідки</th>
+                        <th class="p-2 border">Куди</th>
+                        <th class="p-2 border">Водій</th>
+                        <th class="p-2 border">Статус</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersTableBody">
+                    <tr class="hover:bg-gray-50">
+                        <td class="p-2 border">1</td>
+                        <td class="p-2 border">+380637777777</td>
+                        <td class="p-2 border">вул. Лесі Українки</td>
+                        <td class="p-2 border">пр. Перемоги</td>
+                        <td class="p-2 border">Не призначено</td>
+                        <td class="p-2 border text-yellow-600">Очікує</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Водії -->
+        <section class="bg-white p-4 rounded shadow">
+            <h2 class="text-lg font-semibold mb-2">Водії</h2>
+            <ul class="space-y-2 text-sm">
+                <li class="p-2 border rounded bg-green-100">
+                    <strong>А173</strong> – Іван Петров, Toyota Camry<br />
+                    Статус: Вільний
+                </li>
+                <li class="p-2 border rounded bg-yellow-100">
+                    <strong>А182</strong> – Олег Мельник, Audi A6<br />
+                    Статус: Виконує замовлення
+                </li>
+            </ul>
+        </section>
+
+        <!-- Карта -->
+        <section class="md:col-span-3 bg-white p-4 rounded shadow h-96 mt-4">
+            <h2 class="text-lg font-semibold mb-2">Карта</h2>
+            <div id="map" class="w-full h-full">
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center text-sm text-gray-500 p-4">
+        &copy; 2025 Taxi Dispatcher Panel
+    </footer>
+
+    <!-- Ваш JS -->
+    <script src="../js/main.js"></script>
+    <script>
+        var map = L.map("map").setView([49.42652, 32.07128], 13);
+
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution:
+                '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }).addTo(map);
+
+    </script>
+</body>
+
+</html>

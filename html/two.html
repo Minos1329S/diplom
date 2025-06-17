@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адмін-панель</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+    <header class="bg-gray-800 text-white p-4 text-xl font-bold">
+        Статистика
+    </header>
+
+    <main class="p-6 max-w-7xl mx-auto">
+        <!-- Панелі -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Кількість водіїв -->
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-lg font-semibold mb-2">Кількість водіїв</h2>
+                <p class="text-3xl font-bold text-blue-600" id="driverCount">15</p>
+            </div>
+
+            <!-- Кількість замовлень -->
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-lg font-semibold mb-2">Активні замовлення</h2>
+                <p class="text-3xl font-bold text-yellow-600" id="orderCount">8</p>
+            </div>
+
+            <!-- Статистика виконаних -->
+            <div class="bg-white p-4 rounded shadow text-center">
+                <h2 class="text-lg font-semibold mb-2">Виконано замовлень</h2>
+                <p class="text-3xl font-bold text-green-600" id="completedCount">120</p>
+            </div>
+        </section>
+
+        <!-- Списки -->
+        <section class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Водії -->
+            <div class="bg-white p-4 rounded shadow">
+                <h2 class="text-lg font-semibold mb-4">Список водіїв</h2>
+                <ul class="divide-y">
+                    <li class="py-2">Іван Петров – Toyota Camry – Вільний</li>
+                    <li class="py-2">Олег Мельник – Audi A6 – Виконує замовлення</li>
+                    <li class="py-2">Андрій Бондар – Skoda Octavia – Недоступний</li>
+                </ul>
+            </div>
+
+            <!-- Замовлення -->
+            <div class="bg-white p-4 rounded shadow">
+                <h2 class="text-lg font-semibold mb-4">Останні замовлення</h2>
+                <table class="w-full text-sm table-auto">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="p-2">#</th>
+                            <th class="p-2">Клієнт</th>
+                            <th class="p-2">Статус</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b">
+                            <td class="p-2">101</td>
+                            <td class="p-2">+380631112233</td>
+                            <td class="p-2 text-yellow-600">Очікує</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-2">102</td>
+                            <td class="p-2">+380632223344</td>
+                            <td class="p-2 text-green-600">Виконано</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="mt-10 text-center">
+            <a href="./3.html" class="text-blue-600 hover:underline">← Назад до панелі диспетчера</a>
+        </div>
+    </main>
+
+</body>
+
+</html>

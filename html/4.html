@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель водія</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        function toggleEdit() {
+            const form = document.getElementById('editForm');
+            form.classList.toggle('hidden');
+        }
+
+        function saveProfile(event) {
+            event.preventDefault();
+            const name = document.getElementById('nameInput').value;
+            const car = document.getElementById('carInput').value;
+            const plate = document.getElementById('plateInput').value;
+
+            document.getElementById('nameText').textContent = name;
+            document.getElementById('carText').textContent = car;
+            document.getElementById('plateText').textContent = plate;
+
+            toggleEdit();
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50">
+
+    <header class="bg-yellow-500 text-white p-4 text-xl font-bold">
+        Панель водія
+    </header>
+
+    <main class="p-6 max-w-3xl mx-auto">
+        <!-- Інформація про водія -->
+        <section class="bg-white p-4 rounded shadow mb-6">
+            <h2 class="text-lg font-semibold mb-2">Ваш профіль</h2>
+            <p><strong>Ім'я:</strong> <span id="nameText">Іван Петров</span></p>
+            <p><strong>Автомобіль:</strong> <span id="carText">Toyota Camry</span></p>
+            <p><strong>Номер авто:</strong> <span id="plateText">АА1234ВХ</span></p>
+            <p><strong>Статус:</strong> <span class="text-green-600">Вільний</span></p>
+            <button onclick="toggleEdit()" class="mt-4 bg-yellow-500 text-white px-4 py-2 rounded">Редагувати</button>
+
+            <form id="editForm" onsubmit="saveProfile(event)" class="mt-4 hidden">
+                <input id="nameInput" type="text" placeholder="Ім'я" class="border p-2 rounded w-full mb-2"
+                    value="Іван Петров">
+                <input id="carInput" type="text" placeholder="Автомобіль" class="border p-2 rounded w-full mb-2"
+                    value="Toyota Camry">
+                <input id="plateInput" type="text" placeholder="Номер авто" class="border p-2 rounded w-full mb-2"
+                    value="АА1234ВХ">
+                <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded">Зберегти</button>
+            </form>
+        </section>
+
+        <!-- Активні замовлення -->
+        <section class="bg-white p-4 rounded shadow mb-6">
+            <h2 class="text-lg font-semibold mb-2">Ваше поточне замовлення</h2>
+            <p><strong>Клієнт:</strong> +380631112233</p>
+            <p><strong>Звідки:</strong> вул. Хрещатик, 10</p>
+            <p><strong>Куди:</strong> просп. Перемоги, 25</p>
+            <p><strong>Статус:</strong> <span class="text-yellow-600">Очікує виконання</span></p>
+            <div class="mt-4">
+                <button class="bg-green-500 text-white px-4 py-2 rounded mr-2">Почати виконання</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded">Завершити</button>
+            </div>
+        </section>
+
+        <!-- Наявні замовлення -->
+        <section class="bg-white p-4 rounded shadow mb-6">
+            <h2 class="text-lg font-semibold mb-2">Доступні замовлення</h2>
+            <ul class="text-sm space-y-3">
+                <li class="p-3 border rounded bg-gray-100">
+                    <p><strong>Клієнт:</strong> +380501112233</p>
+                    <p><strong>Звідки:</strong> вул. Вербова, 7</p>
+                    <p><strong>Куди:</strong> вул. Мазепи, 30</p>
+                    <button class="mt-2 bg-blue-500 text-white px-3 py-1 rounded">Прийняти</button>
+                </li>
+                <li class="p-3 border rounded bg-gray-100">
+                    <p><strong>Клієнт:</strong> +380631234567</p>
+                    <p><strong>Звідки:</strong> пр. Бандери, 15</p>
+                    <p><strong>Куди:</strong> вул. Саксаганського, 80</p>
+                    <button class="mt-2 bg-blue-500 text-white px-3 py-1 rounded">Прийняти</button>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Історія замовлень -->
+        <section class="bg-white p-4 rounded shadow">
+            <h2 class="text-lg font-semibold mb-2">Історія замовлень</h2>
+            <ul class="text-sm list-disc ml-5">
+                <li>+380987654321 – вул. Січових Стрільців → вул. Грушевського – <span
+                        class="text-green-600">Виконано</span></li>
+                <li>+380633456789 – вул. Лесі Українки → пр. Науки – <span class="text-green-600">Виконано</span></li>
+            </ul>
+        </section>
+
+        <div class="mt-6 text-center">
+            <a href="main.html" class="text-blue-600 hover:underline">← Вийти</a>
+        </div>
+    </main>
+
+</body>
+
+</html>
